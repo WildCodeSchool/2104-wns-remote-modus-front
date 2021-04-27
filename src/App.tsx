@@ -1,12 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import AskingHelpForm from "./routes/AskingHelpForm/AskingHelpForm";
-import Home from "./routes/Home/Home";
-import Navbar from "./routes/Navbar/Navbar";
+import AskingHelpForm from "./routes/askinghelpform/AskingHelpForm";
+import Home from "./routes/home/Home";
+import Navbar from "./routes/navbar/Navbar";
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-function App() {
+const App = (): JSX.Element => {
   return (
     <Router>
       <Navbar />
@@ -20,6 +19,6 @@ function App() {
       </Switch>
     </Router>
   );
-}
+};
 
 export default App;
