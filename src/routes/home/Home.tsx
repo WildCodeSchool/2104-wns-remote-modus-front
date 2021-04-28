@@ -1,7 +1,11 @@
 import React from "react";
 
 const Home = (): JSX.Element => {
-  return <>Je suis le composant home tamere le fameux</>;
+  return (
+    <div >
+      Je suis le composant home tamere le fameux
+    </div>
+  );
 };
 
 export default Home;
