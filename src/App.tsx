@@ -11,7 +11,7 @@ const App = (): JSX.Element => {
       <Navbar />
       <Switch>
         <Route exact path="/">
-          <Home/>
+          <Home />
         </Route>
         <Route exact path="/ask-help">
           <AskingHelpForm />
