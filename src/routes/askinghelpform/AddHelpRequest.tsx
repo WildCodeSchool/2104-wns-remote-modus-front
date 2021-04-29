@@ -13,6 +13,15 @@ function AddHelpRequest(): JSX.Element {
   const [skill, setSkill] = useState("");
   const [skills, setSkills] = useState<string[]>([]);
   const id = 0;
+
+  const DeleteSkill = (title: string) => {
+    setSkills(
+      skills.filter((filteredSkill: string) => {
+        return filteredSkill !== title;
+      })
+    );
+  };
+
   return (
     <div>
       <h3>
@@ -21,6 +30,7 @@ function AddHelpRequest(): JSX.Element {
       <form
         onSubmit={(e) => {
           e.preventDefault();
+          // eslint-disable-next-line no-console
           console.log("data", e);
         }}
       >
@@ -38,13 +48,7 @@ function AddHelpRequest(): JSX.Element {
             {skills.map((oneSkill) => (
               <Skill
                 title={oneSkill}
-                onDelete={(title: string) => {
-                  setSkills(
-                    skills.filter((filteredSkill: string) => {
-                      return filteredSkill !== title;
-                    })
-                  );
-                }}
+                onDelete={(title: string) => DeleteSkill(title)}
                 key={id + ((Math.random() * 10) / Math.random()) * 15}
               />
             ))}
