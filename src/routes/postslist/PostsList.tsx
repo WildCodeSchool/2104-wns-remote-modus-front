@@ -2,7 +2,7 @@
 import React from "react";
 
 const PostsList = (): JSX.Element => {
-  return <>Liste de tamere</>;
+  return <>Liste des posts</>;
 };
 
 export default PostsList;
