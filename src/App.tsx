@@ -5,6 +5,7 @@ import AskingHelpForm from "./routes/askingHelpForm/AskingHelpForm";
 import Home from "./routes/home/Home";
 import Navbar from "./components/navbar/Navbar";
 import AskingHelpPosts from "./routes/askingHelpPosts/AskingHelpPosts";
+import AddHelpRequest from "./routes/askinghelpform/AddHelpRequest";
 
 const App = (): JSX.Element => {
   return (
@@ -19,6 +20,9 @@ const App = (): JSX.Element => {
         </Route>
         <Route exact path="/asking-help-index">
           <AskingHelpPosts />
+        </Route>
+        <Route exact path="/form">
+          <AddHelpRequest />
         </Route>
       </Switch>
     </Router>
