@@ -1,0 +1,39 @@
+.topnav{
+    background-color: #4a4063;
+    overflow: hidden;
+}
+
+.topnav a{
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover{
+    background-color: #c8c6d7;
+    color: #783f8e;
+}
+
+.topnav a.active{
+    background-color: #bfacc8;
+    color: #783f8e;
+}
+
+.profileIcon{
+    height: 1.6vw;
+    float: right;
+    padding: 0.4vw;
+}
+
+.welcomemessage{
+    display: flex;
+    float: right;
+    text-align: center;
+}
+.message{
+    color: #f2f2f2;
+    padding-top: 1vw;
+}

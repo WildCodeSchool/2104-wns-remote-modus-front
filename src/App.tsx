@@ -4,6 +4,7 @@ import "./App.css";
 import AskingHelpForm from "./routes/askinghelpform/AskingHelpForm";
 import Home from "./routes/home/Home";
 import Navbar from "./routes/navbar/Navbar";
+import PostsList from "./routes/postslist/PostsList";
 
 const App = (): JSX.Element => {
   return (
@@ -15,6 +16,9 @@ const App = (): JSX.Element => {
         </Route>
         <Route exact path="/ask-help">
           <AskingHelpForm />
+        </Route>
+        <Route exact path="/posts-list">
+          <PostsList />
         </Route>
       </Switch>
     </Router>
