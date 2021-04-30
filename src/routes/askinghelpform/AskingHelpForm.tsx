@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import Select from "react-select";
+import { useForm, SubmitHandler } from "react-hook-form";
 import Wysiwyg from "./Wysiwyg";
 import Skill from "../../models/Skill";
+
+type FormValues = {
+  title: string;
+  skills: string;
+  wysiwyg: string;
+};
 
 const AskingHelpForm: React.FC = () => {
   const [titleHelp, setTitleHelp] = useState("");
@@ -17,6 +24,9 @@ const AskingHelpForm: React.FC = () => {
     { value: "HTML", label: "HTML" },
   ];
 
+  const { register, handleSubmit } = useForm<FormValues>();
+  const onSubmit: SubmitHandler<FormValues> = (data) => console.log(data);
+
   const DeleteSkill = (title: string) => {
     setSkills(
       skills.filter((filteredSkill: string) => {
@@ -30,17 +40,12 @@ const AskingHelpForm: React.FC = () => {
       <h3>
         Ici vous pouvez remplir une demande d&apos;aide sur un sujet spécifique
       </h3>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          // eslint-disable-next-line no-console
-          console.log("data", e);
-        }}
-      >
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label htmlFor="title">
             Titre de la demande :
             <input
+              {...register("title")}
               type="text"
               name="title"
               value={titleHelp}
@@ -50,7 +55,6 @@ const AskingHelpForm: React.FC = () => {
           <p>Technologie(s) concernée(s) :</p>
           <Select
             options={options}
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             onChange={(result: any) => {
               if (result) {
                 setSkill(result.value);
