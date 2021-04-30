@@ -11,10 +11,9 @@ const AskingHelpForm: React.FC = () => {
   const id = 0;
 
   const options = [
-    { value: "", label: "" },
     { value: "Javascript", label: "Javascript" },
     { value: "GraphQL", label: "GraphQL" },
-    { value: "HTML", label: "HTML" },
+    { value: "Node", label: "Node" },
   ];
 
   const DeleteSkill = (title: string) => {
@@ -33,15 +32,19 @@ const AskingHelpForm: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col items-center">
       <h3>
         Ici vous pouvez remplir une demande d&apos;aide sur un sujet spécifique
       </h3>
-      <form onSubmit={(e) => onSubmitLog(e)}>
+      <form
+        className="border-solid border-yellow-500 border-4 w-3/5 p-8"
+        onSubmit={(e) => onSubmitLog(e)}
+      >
         <div>
           <label htmlFor="title">
             Titre de la demande :
             <input
+              className="border-2 border-solid ml-4"
               type="text"
               name="title"
               value={titleHelp}
@@ -49,17 +52,32 @@ const AskingHelpForm: React.FC = () => {
               required
             />
           </label>
-          <p>Technologie(s) concernée(s) :</p>
-          <Select
-            required
-            options={options}
-            onChange={(result: any) => {
-              if (result) {
-                setSkill(result.value);
-              }
-            }}
-          />
-          <div>
+          <p className="text-center mb-4 mt-4">Technologie(s) concernée(s) :</p>
+          <div className="flex justify-between">
+            <div className="flex w-full items-center">
+              <Select
+                className="w-3/5"
+                required
+                options={options}
+                onChange={(result: any) => {
+                  if (result) {
+                    setSkill(result.value);
+                  }
+                }}
+              />
+              <button
+                className="ml-4 border-2 rounded-full h-8 w-8 flex items-center justify-center"
+                type="button"
+                disabled={skills.includes(skill)}
+                onClick={() => {
+                  setSkills([...skills, skill]);
+                }}
+              >
+                +
+              </button>
+            </div>
+          </div>
+          <div className="flex">
             {skills.map((oneSkill) => (
               <Skill
                 title={oneSkill}
@@ -68,20 +86,20 @@ const AskingHelpForm: React.FC = () => {
               />
             ))}
           </div>
-          <button
-            type="button"
-            disabled={skills.includes(skill)}
-            onClick={() => {
-              setSkills([...skills, skill]);
-            }}
-          >
-            +
-          </button>
         </div>
-        <div>
-          <p>Contexte et description du probleme (wysiwyg):</p>
+        <div className="mt-12">
+          <p className="mb-4 mt-4">
+            Contexte et description du probleme (wysiwyg):
+          </p>
           <Wysiwyg userInput={userInput} setUserInput={setUserInput} />
-          <button type="submit">Ajouter</button>
+          <div className="flex justify-end mt-4">
+            <button
+              className="border-2 p-1 flex items-center justify-center"
+              type="submit"
+            >
+              Ajouter
+            </button>
+          </div>
         </div>
       </form>
     </div>
