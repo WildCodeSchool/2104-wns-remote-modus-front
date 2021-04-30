@@ -1,9 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import AskingHelpForm from "./routes/askinghelpform/AskingHelpForm";
+import AskingHelpForm from "./routes/askingHelpForm/AskingHelpForm";
 import Home from "./routes/home/Home";
-import Navbar from "./routes/navbar/Navbar";
+import Navbar from "./components/navbar/Navbar";
+import AskingHelpPosts from "./routes/askingHelpPosts/AskingHelpPosts";
 
 const App = (): JSX.Element => {
   return (
@@ -13,8 +14,11 @@ const App = (): JSX.Element => {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/ask-help">
+        <Route exact path="/asking-help-form">
           <AskingHelpForm />
+        </Route>
+        <Route exact path="/asking-help-index">
+          <AskingHelpPosts />
         </Route>
       </Switch>
     </Router>
