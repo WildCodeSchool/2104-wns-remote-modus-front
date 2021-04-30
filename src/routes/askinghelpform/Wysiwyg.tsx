@@ -33,7 +33,7 @@ export default function Wysiwyg({
   return (
     <ReactQuill
       value={userInput}
-      placeholder="Please insert your text here..."
+      placeholder="Please insert your text here... "
       onChange={setUserInput}
       modules={modules}
     />
