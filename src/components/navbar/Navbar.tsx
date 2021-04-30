@@ -9,8 +9,8 @@ const Navbar = (): JSX.Element => {
         <NavLink to="/" exact>
           Home
         </NavLink>
-        <NavLink to="/ask-help">AskingHelpForm</NavLink>
-        <NavLink to="/posts-list">PostsList</NavLink>
+        <NavLink to="/asking-help-form">AskingHelpForm</NavLink>
+        <NavLink to="/asking-help-index">AskingHelpPosts</NavLink>
       </div>
       <div className="welcomemessage">
         <div className="topnav message">Welcome user@mail.com</div>
