@@ -7,6 +7,7 @@ const Navbar = (): JSX.Element => {
     <div>
       <NavLink to="/">Home</NavLink>
       <NavLink to="/ask-help">AskingHelpForm</NavLink>
+      <NavLink to="/form">Form</NavLink>
     </div>
   );
 };
