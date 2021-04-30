@@ -33,7 +33,6 @@ const AskingHelpForm: React.FC = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          // eslint-disable-next-line no-console
           console.log("data", e);
         }}
       >
@@ -50,7 +49,6 @@ const AskingHelpForm: React.FC = () => {
           <p>Technologie(s) concernée(s) :</p>
           <Select
             options={options}
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             onChange={(result: any) => {
               if (result) {
                 setSkill(result.value);
