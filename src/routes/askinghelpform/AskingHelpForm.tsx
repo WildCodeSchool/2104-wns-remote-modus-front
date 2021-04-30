@@ -4,8 +4,10 @@ import Wysiwyg from "./Wysiwyg";
 import Skill from "../../models/Skill";
 
 const AskingHelpForm: React.FC = () => {
+  const [titleHelp, setTitleHelp] = useState("");
   const [skill, setSkill] = useState("");
   const [skills, setSkills] = useState<string[]>([]);
+  const [userInput, setUserInput] = useState("");
   const id = 0;
 
   const options = [
@@ -36,6 +38,15 @@ const AskingHelpForm: React.FC = () => {
         }}
       >
         <div>
+          <label htmlFor="title">
+            Titre de la demande :
+            <input
+              type="text"
+              name="title"
+              value={titleHelp}
+              onChange={(e) => setTitleHelp(e.target.value)}
+            />
+          </label>
           <p>Technologie(s) concernée(s) :</p>
           <Select
             options={options}
@@ -67,7 +78,7 @@ const AskingHelpForm: React.FC = () => {
         </div>
         <div>
           <p>Contexte et descritpion du probleme (wysiwyg):</p>
-          <Wysiwyg />
+          <Wysiwyg userInput={userInput} setUserInput={setUserInput} />
           <button type="submit">Ajouter</button>
         </div>
       </form>

@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactQuill from "react-quill";
 
 import "react-quill/dist/quill.snow.css";
 
-export default function Wysiwyg(): JSX.Element {
-  const [userInput, setUserInput] = useState("");
+interface WysiwygProps {
+  userInput: string;
+  setUserInput: (s: string) => void;
+}
 
+export default function Wysiwyg({
+  userInput,
+  setUserInput,
+}: WysiwygProps): JSX.Element {
   const modules = {
     toolbar: [
       [{ header: [1, 2, 3, 4, 5, 6, false] }],
