@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import AskingHelpForm from "./routes/askingHelpForm/AskingHelpForm";
 import Home from "./routes/home/Home";
 import Navbar from "./components/navbar/Navbar";
 import AskingHelpPosts from "./routes/askingHelpPosts/AskingHelpPosts";
+import AskingHelpForm from "./routes/askinghelpform/AskingHelpForm";
 
 const App = (): JSX.Element => {
   return (
