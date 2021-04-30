@@ -25,17 +25,19 @@ const AskingHelpForm: React.FC = () => {
     );
   };
 
+  const onSubmitLog = (e: any) => {
+    e.preventDefault();
+    const formData = { title: titleHelp, skills, wysiwyg: userInput };
+    JSON.stringify(formData);
+    console.log(`data`, formData);
+  };
+
   return (
     <div>
       <h3>
         Ici vous pouvez remplir une demande d&apos;aide sur un sujet spécifique
       </h3>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          console.log("data", e);
-        }}
-      >
+      <form onSubmit={(e) => onSubmitLog(e)}>
         <div>
           <label htmlFor="title">
             Titre de la demande :
@@ -44,10 +46,12 @@ const AskingHelpForm: React.FC = () => {
               name="title"
               value={titleHelp}
               onChange={(e) => setTitleHelp(e.target.value)}
+              required
             />
           </label>
           <p>Technologie(s) concernée(s) :</p>
           <Select
+            required
             options={options}
             onChange={(result: any) => {
               if (result) {
@@ -75,7 +79,7 @@ const AskingHelpForm: React.FC = () => {
           </button>
         </div>
         <div>
-          <p>Contexte et descritpion du probleme (wysiwyg):</p>
+          <p>Contexte et description du probleme (wysiwyg):</p>
           <Wysiwyg userInput={userInput} setUserInput={setUserInput} />
           <button type="submit">Ajouter</button>
         </div>
