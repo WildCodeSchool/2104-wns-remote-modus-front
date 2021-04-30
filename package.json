@@ -35,8 +35,8 @@
   },
   "devDependencies": {
     "@types/react-router-dom": "^5.1.7",
-    "autoprefixer": "^9.8.6",
     "@types/react-select": "^4.0.15",
+    "autoprefixer": "^9.8.6",
     "eslint": "7.11.0",
     "eslint-config-airbnb": "18.2.1",
     "eslint-plugin-react-hooks": "^4.2.0",

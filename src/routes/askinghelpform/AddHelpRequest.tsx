@@ -38,7 +38,8 @@ function AddHelpRequest(): JSX.Element {
           <p>Technologie(s) concernée(s) :</p>
           <Select
             options={options}
-            onChange={(result) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            onChange={(result: any) => {
               if (result) {
                 setSkill(result.value);
               }
