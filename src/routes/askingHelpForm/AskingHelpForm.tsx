@@ -48,6 +48,7 @@ const AskingHelpForm: React.FC = () => {
               type="text"
               name="title"
               value={titleHelp}
+              placeholder="Titre..."
               onChange={(e) => setTitleHelp(e.target.value)}
               required
             />
