@@ -15,7 +15,7 @@ const App = (): JSX.Element => {
           <Home />
         </Route>
         <Route exact path="/asking-help-form">
-          <AskingHelpForm />
+          <AskingHelpForm onSubmit={() => console.log("onsubmit")} />
         </Route>
         <Route exact path="/asking-help-index">
           <AskingHelpPosts />

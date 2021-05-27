@@ -6,11 +6,13 @@ import "react-quill/dist/quill.snow.css";
 interface WysiwygProps {
   userInput: string;
   setUserInput: (s: string) => void;
+  dataTestid: string;
 }
 
 export default function Wysiwyg({
   userInput,
   setUserInput,
+  dataTestid,
 }: WysiwygProps): JSX.Element {
   const modules = {
     toolbar: [
@@ -36,6 +38,7 @@ export default function Wysiwyg({
       placeholder="Please insert your text here... "
       onChange={setUserInput}
       modules={modules}
+      data-testId={dataTestid}
     />
   );
 }

@@ -3,7 +3,13 @@ import Select from "react-select";
 import Wysiwyg from "./Wysiwyg";
 import Skill from "../../models/Skill";
 
-const AskingHelpForm: React.FC = () => {
+interface AskingHelpFormProps {
+  onSubmit: () => void;
+}
+
+const AskingHelpForm: React.FC<AskingHelpFormProps> = ({
+  onSubmit,
+}: AskingHelpFormProps) => {
   const [titleHelp, setTitleHelp] = useState("");
   const [skill, setSkill] = useState("");
   const [skills, setSkills] = useState<string[]>([]);
@@ -24,11 +30,12 @@ const AskingHelpForm: React.FC = () => {
     );
   };
 
-  const onSubmitLog = (e: any) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     const formData = { title: titleHelp, skills, wysiwyg: userInput };
     JSON.stringify(formData);
     console.log(`data`, formData);
+    onSubmit();
   };
 
   return (
@@ -38,7 +45,7 @@ const AskingHelpForm: React.FC = () => {
       </h3>
       <form
         className="border-solid border-yellow-500 border-4 w-3/5 p-8"
-        onSubmit={(e) => onSubmitLog(e)}
+        onSubmit={(e) => handleSubmit(e)}
       >
         <div>
           <label htmlFor="title">
@@ -49,6 +56,7 @@ const AskingHelpForm: React.FC = () => {
               name="title"
               value={titleHelp}
               placeholder="Titre..."
+              data-testid="title-form"
               onChange={(e) => setTitleHelp(e.target.value)}
               required
             />
@@ -69,6 +77,7 @@ const AskingHelpForm: React.FC = () => {
               <button
                 className="ml-4 border-2 rounded-full h-8 w-8 flex items-center justify-center"
                 type="button"
+                data-testid="skill-button-form"
                 disabled={skills.includes(skill)}
                 onClick={() => {
                   setSkills([...skills, skill]);
@@ -92,11 +101,16 @@ const AskingHelpForm: React.FC = () => {
           <p className="mb-4 mt-4">
             Contexte et description du probleme (wysiwyg):
           </p>
-          <Wysiwyg userInput={userInput} setUserInput={setUserInput} />
+          <Wysiwyg
+            userInput={userInput}
+            setUserInput={setUserInput}
+            dataTestid="wysiwyg-form"
+          />
           <div className="flex justify-end mt-4">
             <button
               className="border-2 p-1 flex items-center justify-center"
               type="submit"
+              data-testid="submitButton"
             >
               Ajouter
             </button>
