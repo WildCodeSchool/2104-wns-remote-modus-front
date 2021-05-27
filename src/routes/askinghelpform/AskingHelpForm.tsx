@@ -32,10 +32,14 @@ const AskingHelpForm: React.FC<AskingHelpFormProps> = ({
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    const formData = { title: titleHelp, skills, wysiwyg: userInput };
-    JSON.stringify(formData);
-    console.log(`data`, formData);
-    onSubmit();
+    if (titleHelp) {
+      const formData = { title: titleHelp, skills, wysiwyg: userInput };
+      JSON.stringify(formData);
+      console.log(`data`, formData);
+      onSubmit();
+    } else {
+      console.log("title manquant");
+    }
   };
 
   return (
@@ -65,8 +69,9 @@ const AskingHelpForm: React.FC<AskingHelpFormProps> = ({
           <div className="flex justify-between">
             <div className="flex w-full items-center">
               <Select
+                data-testid="select-skill-form"
                 className="w-3/5"
-                required
+                required=""
                 options={options}
                 onChange={(result: any) => {
                   if (result) {
