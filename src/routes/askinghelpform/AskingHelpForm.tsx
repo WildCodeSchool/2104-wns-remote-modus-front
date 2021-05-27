@@ -30,7 +30,7 @@ const AskingHelpForm: React.FC<AskingHelpFormProps> = ({
     );
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (titleHelp) {
       const formData = { title: titleHelp, skills, wysiwyg: userInput };
