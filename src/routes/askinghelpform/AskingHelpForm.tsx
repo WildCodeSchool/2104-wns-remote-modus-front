@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button } from "semantic-ui-react";
 import Select from "react-select";
 import Wysiwyg from "./Wysiwyg";
 import Skill from "../../models/Skill";
@@ -94,12 +95,12 @@ const AskingHelpForm: React.FC = () => {
           </p>
           <Wysiwyg userInput={userInput} setUserInput={setUserInput} />
           <div className="flex justify-end mt-4">
-            <button
+            <Button
               className="border-2 p-1 flex items-center justify-center"
               type="submit"
             >
               Ajouter
-            </button>
+            </Button>
           </div>
         </div>
       </form>
