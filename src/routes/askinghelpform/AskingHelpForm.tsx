@@ -32,14 +32,14 @@ const AskingHelpForm: React.FC<AskingHelpFormProps> = ({
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (titleHelp) {
-      const formData = { title: titleHelp, skills, wysiwyg: userInput };
-      JSON.stringify(formData);
-      console.log(`data`, formData);
-      onSubmit();
-    } else {
-      console.log("title manquant");
-    }
+    // if (titleHelp) {
+    const formData = { title: titleHelp, skills, wysiwyg: userInput };
+    JSON.stringify(formData);
+    console.log(`data`, formData);
+    onSubmit();
+    // } else {
+    // console.log("title manquant");
+    // }
   };
 
   return (
