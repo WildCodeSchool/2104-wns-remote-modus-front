@@ -8,7 +8,7 @@ it("renders a submit button", () => {
 });
 
 describe("Test if submit is called", () => {
-  it("Submit the form if every fields are empty", async () => {
+  it("Doesnt submit the form if every fields are empty", async () => {
     const mockSubmit = jest.fn();
     render(<AskingHelpForm onSubmit={mockSubmit} />);
     fireEvent.click(screen.getByTestId("submitButton"));
